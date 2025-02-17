@@ -1,0 +1,36 @@
+[
+    {
+        "uid": 589,
+        "name": "Hallway",
+        "author": "izzy",
+        "version": "1.0",
+        "gameModes": [1],
+        "vxlURL": "https://aos.party/download/589/vxl",
+        "txtURL": "https://aos.party/download/589/txt",
+        "homepage": "https://aos.party/view/589",
+        "description": "A narrow passage between small spawns surrounded by colorful blocks that rise to the ceiling.",
+        "tags": ["hallway", "ctf", "classic", "import", "aosparty-import"]
+    },
+    {
+        "uid": 1048,
+        "name": "Utopia",
+        "author": "Lostmotel",
+        "version": "1.2",
+        "gameModes": [898652323],
+        "vxlURL": "https://aos.party/download/1048/vxl",
+        "txtURL": "https://aos.party/download/1048/txt",
+        "homepage": "https://aos.party/view/1048",
+        "tags": ["waterdmg", "babel", "import", "aosparty-import"]
+    },
+    {
+        "uid": 1086,
+        "name": "Yubacore",
+        "author": "Lostmotel, mill by SIMOX",
+        "version": "1.1",
+        "gameModes": [898652323],
+        "vxlURL": "https://aos.party/download/1086/vxl",
+        "txtURL": "https://aos.party/download/1086/txt",
+        "homepage": "https://aos.party/view/1086",
+        "tags": ["waterdmg", "babel", "import", "aosparty-import"]
+    }
+]

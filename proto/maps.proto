@@ -1,0 +1,21 @@
+syntax = "proto3";
+package spades_master;
+
+// Game map
+message Map {
+  uint32 uid = 1; // Unique map identifier
+
+  optional string name   = 2; // Map name
+  optional string author = 3; // Map author
+
+  optional int64  updated   = 4; // Last time the map listing was updated
+  optional string version   = 5; // Map version
+  repeated uint32 gameModes = 6; // IDs of supported game modes
+
+  optional string vxlURL = 10; // VXL file object store location
+  optional string txtURL = 11; // TXT file object store location
+
+  optional string homepage    = 14; // Map creator's homepage URL
+  optional string description = 15; // Arbitrary map description (Markdown)
+  repeated string tags        = 16; // Abritrary tags
+}

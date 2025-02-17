@@ -1,0 +1,14 @@
+[
+    {
+        "uid": 1,
+        "name": "CTF",
+        "description": "Capture the flag is a builtin game mode where you compete to capture the enemy team's intelligence briefcase.",
+        "tags": ["ctf", "builtin"]
+    },
+    {
+        "uid": 898652323,
+        "name": "Babel",
+        "description": "Build a tower to the heavens to capture the enemy's intel.",
+        "tags": ["ctf", "babel"]
+    }
+]

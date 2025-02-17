@@ -1,0 +1,57 @@
+syntax = "proto3";
+package spades_master;
+
+// Game server
+message Server {
+  enum Status {
+    STATUS_UNKNOWN = 0;
+    STATUS_ONLINE  = 1;
+    STATUS_DOWN    = 2;
+  }
+
+  uint32 uid = 1; // Unique server identifier
+
+  optional string   name     = 2; // Server name
+  optional Endpoint endpoint = 3; // Server connection endpoint
+
+  optional int64  updated       = 4; // Last time the server posted data
+  optional int64  ttl           = 5; // Time when listing will expire unless updated
+  optional Status status        = 6; // Server status
+  optional int64  statusUpdated = 7; // Last time the status changed
+  optional uint32 protoVersion  = 8; // Game protocol version (0.75 is 3 and 0.76 is 4)
+
+  optional uint32 country = 9; // ISO 3166-1 numeric code
+
+  optional uint32 maxPlayers     = 10; // Number of player slots
+  optional uint32 currentPlayers = 11; // Number of active players
+
+  oneof gameMap {
+    uint32 gameMapID    = 12; // ID of the current map
+    string gameMapName  = 17; // Name of the current map
+  }
+  oneof gameMode {
+    uint32 gameModeID   = 13; // ID of the current game mode
+    string gameModeName = 18; // Name of the current game mode
+  }
+
+  optional string homepage    = 14; // Server operator's homepage URL
+  optional string description = 15; // Arbitrary server description (Markdown)
+  repeated string tags        = 16; // Abritrary tags
+}
+
+// Network endpoint
+message Endpoint {
+  message IPv6Endpoint {
+    bytes addr = 1;
+    uint32 port = 2;
+  }
+  message IPv4Endpoint {
+    fixed32 addr = 1;
+    uint32  port = 2;
+  }
+  oneof host {
+    string       dnsName = 1; // DNS name, must be SRV record
+    IPv6Endpoint ipv6    = 2; // IPv6 address + port
+    IPv4Endpoint ipv4    = 3; // IPv4 address + port
+  }
+}

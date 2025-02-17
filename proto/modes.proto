@@ -1,0 +1,17 @@
+syntax = "proto3";
+package spades_master;
+
+// Game mode
+message Mode {
+  uint32 uid = 1; // Unique game mode identifier
+
+  optional string name   = 2; // Game mode name
+  optional string author = 3; // Game mode author
+
+  optional int64  updated  = 4; // Last time the game mode listing was updated
+  optional string version =  5; // Game mode version
+
+  optional string homepage    = 14; // Game mode creator's homepage URL
+  optional string description = 15; // Arbitrary game mode description (Markdown)
+  repeated string tags        = 16; // Abritrary tags
+}

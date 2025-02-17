@@ -1,0 +1,25 @@
+syntax = "proto3";
+package spades_master;
+import "modes.proto";
+
+service Modes {
+  // List available game modes
+  rpc ListModes (ListModesReq) returns (ListModesRes) {}
+
+  // Get specific game mode listing
+  rpc GetMode (GetModeReq) returns (GetModeRes) {}
+}
+
+message ListModesReq {
+
+}
+message ListModesRes {
+  repeated Mode modes = 1;
+}
+
+message GetModeReq {
+  uint32 uid = 1; // UID of the game mode
+}
+message GetModeRes {
+  Mode mode = 1;
+}

@@ -1,0 +1,25 @@
+syntax = "proto3";
+package spades_master;
+import "maps.proto";
+
+service Maps {
+  // List available game maps
+  rpc ListMaps (ListMapsReq) returns (ListMapsRes) {}
+
+  // Get specific game map listing
+  rpc GetMap (GetMapReq) returns (GetMapRes) {}
+}
+
+message ListMapsReq {
+
+}
+message ListMapsRes {
+  repeated Map maps = 1;
+}
+
+message GetMapReq {
+  uint32 uid = 1; // UID of the game map
+}
+message GetMapRes {
+  Map map = 1;
+}

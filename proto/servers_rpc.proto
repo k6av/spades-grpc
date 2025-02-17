@@ -1,0 +1,58 @@
+syntax = "proto3";
+package spades_master;
+import "servers.proto";
+
+service Servers {
+  // List available servers
+  rpc ListServers (ListServersReq) returns (ListServersRes) {}
+
+  // Get specific server listing
+  rpc GetServer (GetServerReq) returns (GetServerRes) {}
+
+  // Create server listing
+  rpc CreateServer (CreateServerReq) returns (CreateServerRes) {}
+
+  // Update server listing
+  rpc UpdateServer (UpdateServerReq) returns (UpdateServerRes) {}
+
+  // Remove server listing
+  rpc RemoveServer (RemoveServerReq) returns (RemoveServerRes) {}
+}
+
+message ListServersReq {
+
+}
+message ListServersRes {
+  repeated Server servers = 1;
+}
+
+message GetServerReq {
+  uint32 uid = 1; // UID of the server
+
+  // Field filters
+  bool showDescription = 15; // Whether to include the description
+}
+message GetServerRes {
+  Server server = 1;
+}
+
+message CreateServerReq {
+  Server server = 1; // Server spec object, specified UID is ignored
+}
+message CreateServerRes {
+  uint32 uid = 1; // UID of the new server
+}
+
+message UpdateServerReq {
+  Server server = 1; // Server spec object, specify which server by setting UID
+}
+message UpdateServerRes {
+  uint32 uid = 1; // UID of the updated server
+}
+
+message RemoveServerReq {
+  uint32 uid = 1; // UID of the server to remove
+}
+message RemoveServerRes {
+  uint32 uid = 1; // UID of the removed server
+}
